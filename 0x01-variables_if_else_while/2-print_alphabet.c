@@ -8,6 +8,7 @@
 
 int main(void)
 {
+	char y;
 	for (y = 'x' ; y <= 'z' ; y++)
 		putchar(y);
 	putchar('\n');

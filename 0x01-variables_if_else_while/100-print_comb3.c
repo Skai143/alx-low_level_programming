@@ -21,7 +21,7 @@ int main(void)
 				putchar(z + '0');
 				if (y + z != 17)
 				{
-					putchar(",");
+					putchar(',');
 					putchar(' ');
 				}
 			}

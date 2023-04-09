@@ -6,7 +6,14 @@
  *
  *Return: Always 0.
  */
-int main(void)
+int _strlen(char *s);
+
 {
-			
+	int lenght = 0;
+	while(s != '\0')
+	{
+		length++;
+		s++;
+	}
+	return length;
 }

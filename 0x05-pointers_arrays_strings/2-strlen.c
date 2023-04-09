@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-
 /**
  *int _strlen: returns the length of a string
  *@s: this is the character name

@@ -2,18 +2,19 @@
 #include <stdio.h>
 
 /**
- *int _strlen(char *s); returns the length of a string
+ *int _strlen: returns the length of a string
+ *@s: this is the character name
  *
  *Return: Always 0.
  */
 int _strlen(char *s);
 
 {
-	int lenght = 0;
-	while(s != '\0')
+	int lt = 0;
+	while (s != '\0')
 	{
-		length++;
-		s++;
+		lt++;
+		*s++;
 	}
-	return length;
+	return lt;
 }

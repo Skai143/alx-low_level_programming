@@ -5,12 +5,15 @@
  *
  *Return: Always 0 as successful.
  */
-int _strlen(char *s);
+int _strlen(char *s)
 
 {
 	int lt = 0;
 
-	while (*s++)
+	while (*s != '\0')
+	{	
 	lt++;
+	s++;
+	}
 	return lt;
 }

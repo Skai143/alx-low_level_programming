@@ -29,7 +29,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (y == NULL)
 	{
 		return (NULL);
-}
+	}
 	*p = '\0';
 	return (y);
 }

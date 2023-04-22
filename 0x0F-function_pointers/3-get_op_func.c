@@ -4,7 +4,7 @@
  * get_op_func - function to pointer to get operation
  * @s: operator
  *
- * Return: pointer to function.
+ * Return: pointer to function as successful.
  */
 
 int (*get_op_func(char *s))(int, int)

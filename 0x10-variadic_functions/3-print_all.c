@@ -6,93 +6,45 @@
  * print_all - prints anything
  * @format: list of types of arguments passed to the function
  */
-
-void print_char(va_list arg)
-{
-	char c = va_arg(arg, int);
-
-	printf("%c", c);
-}
-
-/**
- * print_int - function prints int
- * @arg: argument
- */
-
-void print_int(va_list arg)
-{
-	int i = va_arg(arg, int);
-
-	printf("%d", i);
-}
-
-/**
- * print_float - function prints float
- * @arg: argument
- */
-
-void print_float(va_list arg)
-{
-	float f = va_arg(arg, double);
-
-	printf("%f", f);
-}
-
-/**
- * print_string - function prints strings.
- * @arg: argument
- */
-
-void print_string(va_list arg)
-{
-	char *a = va_arg(arg, char *);
-
-	if (a == NULL)
-	{
-		printf("(nil)");
-		return;
-	}
-	printf("%s", a);
-}
-
-/**
- * print_all - function that prints anything.
- * @format: format specifier
- */
-
 void print_all(const char * const format, ...)
 {
-	va_list arg;
-	int x, y;
-	char *sep = "";
+	int a = 0;
+	char *str, *sep = "";
 
-	print_d data[] = {
-		{"c", print_char},
-		{"i", print_int},
-		{"f", print_float},
-		{"s", print_string}
-	};
+	va_list list;
 
-	va_start(arg, format);
+	va_start(list, format);
 
-	x = 0;
-	while (format && *(format + x))
+	if (format)
 	{
-		y = 0;
-		while (y < 4 && *(format + x) != *(data[y].c))
+		while (format[a])
 		{
-			y++;
-		}
-
-		if (y < 4)
-		{
-			printf("%s", sep);
-			data[y].f_pr(arg);
+			switch (format[a])
+			{
+				case 'c':
+					printf("%s%c", sep, va_arg(list, int));
+					break;
+				case 'i':
+					printf("%s%d", sep, va_arg(list, int));
+					break;
+				case 'f':
+					printf("%s%f", sep, va_arg(list, double));
+					break;
+				case 's':
+					str = va_arg(list, char *);
+					if (!str)
+						str = "(nil)";
+					printf("%s%s", sep, str);
+					break;
+				default:
+					a++;
+					continue;
+			}
 			sep = ", ";
+			a++;
 		}
-		x++;
 	}
-	printf("\n");
 
-	va_end(arg);
+	printf("\n");
+	va_end(list);
 }

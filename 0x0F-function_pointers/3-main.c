@@ -37,7 +37,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		exit(100);
 	}
 
-	printf("%d\n", get_op_func(op)(x , y));
+	printf("%d\n", get_op_func(op)(x, y));
 
 	return (0);
 }

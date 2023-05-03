@@ -8,22 +8,24 @@
  * @nmemb: number of elements in the array
  * @size: size of each element
  *
- *Return: NULL if fail. pointer otherwise
+ *Return: pointer
  */
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	char *pt;
+	char *p;
+	unsigned int a;
 
 	if (nmemb == 0 || size == 0)
-		return (NULL);
+		return (0);
 
-	pt = malloc(size * nmemb);
+	p = malloc(nmemb * size);
+	if (p == NULL)
+		return (0);
 
-	if (pt == NULL)
-		return (NULL);
-
-	_memset(pt, 0, nmemb * size);
-
-	return (pt);
+	for (a = 0; a < nmemb * size; a++)
+	{
+		*(p + a) = 0;
+	}
+	return (p);
 }
